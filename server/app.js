@@ -15,6 +15,6 @@ app.get("/", async(req, res) => {
     })
 });
 
-app.listen(config.PORT, () => {
+module.exports = app.listen(config.PORT, () => {
     console.log(`Server is up at port ${config.PORT}`);
 })
