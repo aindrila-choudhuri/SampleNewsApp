@@ -7,7 +7,8 @@ const app = express();
 app.use(cors())
 
 app.get("/", async(req, res) => {
-    const url = `${config.EVERYTHING_URL}?q=${config.COUNTRY_CODE}&sortBy=publishedAt&apiKey=${config.API_KEY}`
+    const queryFilter = req.query.filter ? req.query.filter : config.COUNTRY_CODE;
+    const url = `${config.EVERYTHING_URL}?q=${queryFilter}&sortBy=publishedAt&apiKey=${config.API_KEY}`
     await request({url}, (err, resp) => {
         const data = JSON.parse(JSON.parse(JSON.stringify(resp.body)));
         res.send(data)

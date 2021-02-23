@@ -1,17 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import NewsArticle from "./NewsArticle";
 import config from "./../config/config";
+import TopNav from './TopNav';
 
-function NewsList() {
+const NewsList = () => {
     const [newsList, setNewsList] = useState([]);
+    const [filterText, setFilterText] = useState('');
 
     useEffect(() => {
-        fetchNewsList();
+        fetchNewsList(filterText);
     }, [])
 
-    async function fetchNewsList() {
-        const response = await fetch(config.URL).catch(err => console.log("err : ", err));
-
+    const fetchNewsList = async(queryFilter) => {
+        const response = await fetch(`${config.URL}?filter=${queryFilter}`)
+                            .catch(err => console.log("Error fetching data : ", err));
         const reader = response.body.getReader();
 
         while (true) {
@@ -24,9 +26,18 @@ function NewsList() {
         }
     }
 
+    const handleClick = async(e) => {
+        e.preventDefault();
+        fetchNewsList(filterText);
+    }
+
+    const handleChange = (val) => {
+        setFilterText(val)
+    }
+
     return(
         <div>
-            <h1 className="heading">UK News</h1>
+            <TopNav keyword = {filterText || ""} changeHandler={handleChange} clickHandler={handleClick}/>
             <div className="all__news">
                 {
                     newsList.map((news, i) => <NewsArticle key={i} news={news}/>)
