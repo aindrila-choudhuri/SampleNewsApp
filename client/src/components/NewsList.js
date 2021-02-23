@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import NewsArticle from "./NewsArticle"
+import NewsArticle from "./NewsArticle";
+import config from "./../config/config";
 
 function NewsList() {
     const [newsList, setNewsList] = useState([]);
@@ -9,7 +10,7 @@ function NewsList() {
     }, [])
 
     async function fetchNewsList() {
-        const response = await fetch('http://localhost:4004').catch(err => console.log("err : ", err));
+        const response = await fetch(config.URL).catch(err => console.log("err : ", err));
 
         const reader = response.body.getReader();
 
@@ -17,7 +18,6 @@ function NewsList() {
             const { value, done } = await reader.read();
             if (done) break;
             const resBody = JSON.parse(Buffer.from(value).toString());
-            console.log("resBody : ", resBody)
             if (resBody.articles && resBody.articles.length) {
                 setNewsList(resBody.articles);
             }
