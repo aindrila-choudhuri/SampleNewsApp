@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<div
+  className="news"
+  data-testid="newsarticle"
+  onClick={[Function]}
+>
+  <img
+    className="image__desc"
+    src="https://s.yimg.com/uu/api/res/1.2/G2nZb5KC19af_vZPEDV7.g--~B/aD01MTI7dz03Njg7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en/afp.com/0d2d90fb77d26ecf1317517a3e55fe84"
+  />
+  <h4
+    className="news__title"
+  >
+    Vaccine hopes boost British pound
+  </h4>
+  <span
+    className="news__author"
+  >
+    AFP
+  </span>
+   
+  <br />
+  <span
+    className="news__published"
+  >
+    Tue Feb 23 2021 08:58:04 GMT+0530 (India Standard Time)
+  </span>
+  <span
+    className="news__source"
+  >
+    Yahoo Entertainment
+  </span>
+</div>
+`;

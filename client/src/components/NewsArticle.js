@@ -6,7 +6,7 @@ const NewsArticle = (props) => {
     const defaultImageURL = process.env.PUBLIC_URL + "/news.jpeg"
 
     return(
-        <div className="news" onClick={()=>window.location.href=news.url}>
+        <div data-testid="newsarticle" className="news" onClick={()=>window.location.href=news.url}>
             <img className="image__desc" src={news.urlToImage ? news.urlToImage : defaultImageURL} />
             <h4 className="news__title">{news.title}</h4>
             <span className="news__author">{news.author}</span> <br />
