@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot testing 1`] = `
+<div
+  data-testid="newslist"
+>
+  <div
+    className="topnav"
+  >
+    <h1
+      className="spanheading"
+    >
+      Latest News
+    </h1>
+    <div
+      className="search-container"
+    >
+      <input
+        onChange={[Function]}
+        type="text"
+        value=""
+      />
+      <button
+        onClick={[Function]}
+      >
+        <i
+          className="fa fa-search"
+        />
+      </button>
+    </div>
+  </div>
+  <div
+    className="all__news"
+    data-testid="allNews"
+  />
+</div>
+`;

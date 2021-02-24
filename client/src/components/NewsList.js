@@ -12,17 +12,12 @@ const NewsList = () => {
     }, [])
 
     const fetchNewsList = async(queryFilter) => {
-        const response = await fetch(`${config.URL}?filter=${queryFilter}`)
-                            .catch(err => console.log("Error fetching data : ", err));
-        const reader = response.body.getReader();
-
-        while (true) {
-            const { value, done } = await reader.read();
-            if (done) break;
-            const resBody = JSON.parse(Buffer.from(value).toString());
-            if (resBody.articles && resBody.articles.length) {
-                setNewsList(resBody.articles);
-            }
+        try{
+            const response = await fetch(`${config.URL}?filter=${queryFilter}`);
+            const data = await response.json();
+            setNewsList(data.articles);
+        }catch(err) {
+            console.log("Error fetching data : ", err);
         }
     }
 
@@ -36,9 +31,9 @@ const NewsList = () => {
     }
 
     return(
-        <div>
-            <TopNav keyword = {filterText || ""} changeHandler={handleChange} clickHandler={handleClick}/>
-            <div className="all__news">
+        <div data-testid="newslist">
+            <TopNav data-testid="topnavid" keyword = {filterText || ""} changeHandler={handleChange} clickHandler={handleClick}/>
+            <div data-testid="allNews" className="all__news">
                 {
                     newsList.map((news, i) => <NewsArticle key={i} news={news}/>)
                 }

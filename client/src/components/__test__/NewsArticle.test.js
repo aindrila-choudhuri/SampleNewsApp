@@ -31,7 +31,7 @@ it("renders NewsArticle component correctly", () => {
     const newsarticle = getByTestId('newsarticle');
     
     expect(newsarticle).toContainElement(newsarticle);
-    expect(newsarticle).toHaveClass("news")
+    expect(newsarticle).toHaveClass("news");
 });
 
 it("matches snapshot", () => {
