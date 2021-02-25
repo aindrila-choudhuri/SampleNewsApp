@@ -1,7 +1,23 @@
 import React from 'react';
 import NewsList from "./../NewsList";
-import {render, cleanup, act} from '@testing-library/react';
+import {render, act} from '@testing-library/react';
 import renderer from 'react-test-renderer';
+import ReactDOM from 'react-dom';
+import { unmountComponentAtNode } from "react-dom";
+
+let container = null;
+beforeEach(() => {
+  // setup a DOM element as a render target
+  container = document.createElement("div");
+  document.body.appendChild(container);
+});
+
+afterEach(() => {
+  // cleanup on exiting
+  unmountComponentAtNode(container);
+  container.remove();
+  container = null;
+});
 
 const newsObj = {
     status: "ok",
@@ -49,25 +65,31 @@ const newsObj = {
     ]
 }
 
-it("renders NewsList component without crashing", async() => {
+it("renders NewsList component without crashing", () => {
     global.fetch = jest.fn(() => Promise.resolve({
         json: () => Promise.resolve(newsObj)
-    }))
-    let container = null;
-    container = document.createElement("div");
-    document.body.appendChild(container);
+    }));
+
+    const div = document.createElement("div");
+    ReactDOM.render(<NewsList />, div);
+});
+
+it("renders NewsList component correctly", async() => {
+    global.fetch = jest.fn(() => Promise.resolve({
+        json: () => Promise.resolve(newsObj)
+    }));
+
     await act(async() => render(<NewsList />, container));
     const newsListDiv = document.querySelector("[data-testid=newslist]");
     expect(newsListDiv.children.length).toBe(2);
-    cleanup(container);
-    container.remove();
-    container = null;
+    expect(newsListDiv.children[0]).toHaveClass("topnav");
+    expect(newsListDiv.children[1]).toHaveClass("all__news");
 });
 
-it("snapshot testing", async() => {
+it("NewsList component snapshot testing", async() => {
     global.fetch = jest.fn(() => Promise.resolve({
         json: () => Promise.resolve(newsObj)
-    }))
+    }));
 
     const domTree = await renderer.create(<NewsList />).toJSON();
     expect(domTree).toMatchSnapshot();
