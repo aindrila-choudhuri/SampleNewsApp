@@ -5,7 +5,7 @@ const TopNav = (props) => {
     const {keyword, changeHandler, clickHandler} = props 
 
     return(
-        <div className="topnav">
+        <div data-testid="navid" className="topnav">
             <h1 className="spanheading">Latest News</h1>
             <div className="search-container">
                 <input type="text" value = {keyword} onChange={e => changeHandler(e.target.value)}/>
