@@ -1,5 +1,5 @@
 import React from 'react';
-import "./topnav.css";
+import "./styles/topnav.css";
 
 const TopNav = (props) => {
     const {keyword, changeHandler, clickHandler} = props 

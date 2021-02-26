@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import NewsArticle from "./NewsArticle";
 import config from "./../config/config";
 import TopNav from './TopNav';
+import "./styles/news.css";
 
 const NewsList = () => {
     const [newsList, setNewsList] = useState([]);

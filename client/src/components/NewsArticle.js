@@ -5,7 +5,7 @@ const NewsArticle = (props) => {
 
     const defaultImageURL = process.env.PUBLIC_URL + "/news.jpeg"
 
-    function addDefaultSrc(e){
+    const addDefaultSrc = (e) => {
         e.target.src = defaultImageURL;
         e.target.onerror = null;
     }
