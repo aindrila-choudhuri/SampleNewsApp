@@ -6,12 +6,12 @@ From the project directory navigate to client (cd client) directory and run:
 ### `npm install`
 
 The backend URL is configurable. 
-### `Create a folder config.js in the directory SampleNewsApp/client/src/config/config.js`
-### `Create a variable URL and set the value`
-### `Example code`
-### var config = {};
-### config.URL = 'http://localhost:4004';
-### module.exports = config; 
+Create a folder config.js in the directory SampleNewsApp/client/src/config/config.js
+Create a variable URL and set the value
+Example code
+    `var config = {};`
+    `config.URL = 'http://localhost:4004';`
+    `module.exports = config;` 
 
 Similary from the project directory navigate to server (cd server) directory and run:
 ### `npm install`
