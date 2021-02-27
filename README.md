@@ -6,9 +6,9 @@ From the project directory navigate to client (cd client) directory and run:
 ### `npm install`
 
 The backend URL is configurable. 
-Create a folder config.js in the directory SampleNewsApp/client/src/config/config.js
+Create a folder config.js in the directory `SampleNewsApp/client/src/config/config.js`  
 Create a variable URL and set the value
-Example code
+Example code  
     `var config = {};`  
     `config.URL = 'http://localhost:4004';`  
     `module.exports = config;`   
