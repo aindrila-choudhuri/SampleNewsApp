@@ -5,7 +5,7 @@ Clone the project
 From the project directory navigate to client (`cd client`) directory and run:
 ### `npm install`
 
-The backend URL is configurable. 
+The backend URL is configurable.  
 Create a folder config.js in the directory `SampleNewsApp/client/src/config/config.js`  
 Create a variable `URL` and set the value  
 Example code  
@@ -15,6 +15,7 @@ Example code
 
 From the project directory navigate to server (`cd server`) directory and run:
 ### `npm install`
+The API key, country code and API URL are configurable.  
 Create a folder config.js in the directory `SampleNewsApp/server/config/config.js`  
 Create variables `API_KEY`, `COUNTRY_CODE`, `EVERYTHING_URL` and set the values  
 Example code  
