@@ -6,8 +6,8 @@ From the project directory navigate to client (`cd client`) directory and run:
 ### `npm install`
 
 The backend URL is configurable. 
-Create a folder config.js in the directory `SampleNewsApp/client/src/config/config.js`
-Create a variable `URL` and set the value
+Create a folder config.js in the directory `SampleNewsApp/client/src/config/config.js`  
+Create a variable `URL` and set the value  
 Example code  
     `var config = {};`  
     `config.URL = 'http://localhost:1000';`  
@@ -15,8 +15,8 @@ Example code
 
 From the project directory navigate to server (`cd server`) directory and run:
 ### `npm install`
-Create a folder config.js in the directory `SampleNewsApp/server/config/config.js`
-Create variables `API_KEY`, `COUNTRY_CODE`, `EVERYTHING_URL` and set the values
+Create a folder config.js in the directory `SampleNewsApp/server/config/config.js`  
+Create variables `API_KEY`, `COUNTRY_CODE`, `EVERYTHING_URL` and set the values  
 Example code  
     `var config = {};`  
     `config.PORT = 1000;`  
@@ -25,7 +25,7 @@ Example code
     `config.EVERYTHING_URL = "sample url";`  
     `module.exports = config;`   
 
-In the project directory, run:
+Navigate back to the project root directory, run:
 ### `npm install`
 ### `npm run dev`
 
